@@ -1,4 +1,5 @@
 import ToolCard from "./ToolCard";
+import tools from "../data/tools";
 
 export default function FeaturedTools() {
   return (
@@ -8,20 +9,9 @@ export default function FeaturedTools() {
       </h2>
 
       <div className="grid md:grid-cols-3 gap-8">
-        <ToolCard
-          title="Password Generator"
-          description="Generate strong and secure passwords."
-        />
-
-        <ToolCard
-          title="QR Code Generator"
-          description="Create QR codes instantly."
-        />
-
-        <ToolCard
-          title="JSON Formatter"
-          description="Format and validate JSON."
-        />
+        {tools.slice(0, 3).map((tool) => (
+          <ToolCard key={tool.id} tool={tool} />
+        ))}
       </div>
     </section>
   );

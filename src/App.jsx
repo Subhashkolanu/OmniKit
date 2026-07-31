@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Tools from "./pages/Tools";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PasswordGenerator from "./tools/PasswordGenerator";
 
 function App() {
   return (
@@ -12,6 +13,10 @@ function App() {
       <Route path="/tools" element={<Tools />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route
+  path="/tools/password-generator"
+  element={<PasswordGenerator />}
+/>
     </Routes>
   );
 }
