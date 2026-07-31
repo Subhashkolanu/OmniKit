@@ -63,6 +63,14 @@ const tools = [
   icon: "📱",
   path: "/tools/qr-generator",
 },
+{
+  id: 9,
+  name: "JSON Formatter",
+  category: "Developer",
+  description: "Format, validate, and minify JSON.",
+  icon: "💻",
+  path: "/tools/json-formatter",
+},
 ];
 
 export default tools;

@@ -6,6 +6,7 @@ import Tools from "./pages/Tools";
 import PasswordGenerator from "./tools/PasswordGenerator";
 import WordCounter from "./tools/WordCounter";
 import QRCodeGenerator from "./tools/QRCodeGenerator";
+import JSONFormatter from "./tools/JSONFormatter";
 
 function App() {
   return (
@@ -26,6 +27,11 @@ function App() {
       <Route
         path="/tools/qr-generator"
         element={<QRCodeGenerator />}
+      />
+
+      <Route
+        path="/tools/json-formatter"
+        element={<JSONFormatter />}
       />
     </Routes>
   );
