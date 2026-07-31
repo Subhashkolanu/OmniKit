@@ -47,6 +47,22 @@ const tools = [
     icon: "📄",
     path: "/tools/pdf-merger",
   },
+  {
+  id: 7,
+  name: "Word Counter",
+  category: "Text",
+  description: "Count words, characters, sentences and reading time.",
+  icon: "📝",
+  path: "/tools/word-counter",
+},
+{
+  id: 8,
+  name: "QR Code Generator",
+  category: "Utility",
+  description: "Generate QR codes from text or URLs.",
+  icon: "📱",
+  path: "/tools/qr-generator",
+},
 ];
 
 export default tools;

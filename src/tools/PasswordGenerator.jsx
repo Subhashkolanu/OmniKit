@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import ToolLayout from "../layouts/ToolLayout";
 
 export default function PasswordGenerator() {
   const [length, setLength] = useState(12);
@@ -20,16 +19,14 @@ export default function PasswordGenerator() {
     if (symbols) chars += "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
     if (!chars) {
-      alert("Select at least one option.");
+      alert("Please select at least one character type.");
       return;
     }
 
     let result = "";
 
     for (let i = 0; i < length; i++) {
-      result += chars.charAt(
-        Math.floor(Math.random() * chars.length)
-      );
+      result += chars[Math.floor(Math.random() * chars.length)];
     }
 
     setPassword(result);
@@ -53,106 +50,90 @@ export default function PasswordGenerator() {
       : "Weak";
 
   return (
-    <>
-      <Navbar />
+    <ToolLayout
+      title="Password Generator"
+      description="Generate secure passwords in seconds."
+    >
+      <label className="font-semibold">
+        Password Length: {length}
+      </label>
 
-      <div className="max-w-3xl mx-auto px-6 py-16">
-        <h1 className="text-5xl font-bold text-center">
-          Password Generator
-        </h1>
+      <input
+        type="range"
+        min="6"
+        max="32"
+        value={length}
+        onChange={(e) => setLength(Number(e.target.value))}
+        className="w-full mt-3"
+      />
 
-        <p className="text-gray-600 text-center mt-4">
-          Create strong and secure passwords instantly.
-        </p>
-
-        <div className="border rounded-2xl shadow-sm p-8 mt-10">
-
-          <label className="font-semibold">
-            Password Length: {length}
-          </label>
-
+      <div className="grid md:grid-cols-2 gap-4 mt-8">
+        <label>
           <input
-            type="range"
-            min="6"
-            max="32"
-            value={length}
-            onChange={(e) => setLength(Number(e.target.value))}
-            className="w-full mt-4"
-          />
+            type="checkbox"
+            checked={uppercase}
+            onChange={() => setUppercase(!uppercase)}
+          />{" "}
+          Uppercase
+        </label>
 
-          <div className="grid grid-cols-2 gap-4 mt-8">
+        <label>
+          <input
+            type="checkbox"
+            checked={lowercase}
+            onChange={() => setLowercase(!lowercase)}
+          />{" "}
+          Lowercase
+        </label>
 
-            <label>
-              <input
-                type="checkbox"
-                checked={uppercase}
-                onChange={() => setUppercase(!uppercase)}
-              />{" "}
-              Uppercase
-            </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={numbers}
+            onChange={() => setNumbers(!numbers)}
+          />{" "}
+          Numbers
+        </label>
 
-            <label>
-              <input
-                type="checkbox"
-                checked={lowercase}
-                onChange={() => setLowercase(!lowercase)}
-              />{" "}
-              Lowercase
-            </label>
-
-            <label>
-              <input
-                type="checkbox"
-                checked={numbers}
-                onChange={() => setNumbers(!numbers)}
-              />{" "}
-              Numbers
-            </label>
-
-            <label>
-              <input
-                type="checkbox"
-                checked={symbols}
-                onChange={() => setSymbols(!symbols)}
-              />{" "}
-              Symbols
-            </label>
-
-          </div>
-
-          <button
-            onClick={generatePassword}
-            className="w-full mt-8 bg-black text-white py-3 rounded-xl hover:bg-gray-800"
-          >
-            Generate Password
-          </button>
-
-          {password && (
-            <>
-              <input
-                value={password}
-                readOnly
-                className="w-full border rounded-xl mt-8 p-4 text-center font-mono"
-              />
-
-              <div className="flex justify-between items-center mt-4">
-                <span className="font-semibold">
-                  Strength: {strength}
-                </span>
-
-                <button
-                  onClick={copyPassword}
-                  className="border px-5 py-2 rounded-lg hover:bg-gray-100"
-                >
-                  {copied ? "Copied!" : "Copy"}
-                </button>
-              </div>
-            </>
-          )}
-        </div>
+        <label>
+          <input
+            type="checkbox"
+            checked={symbols}
+            onChange={() => setSymbols(!symbols)}
+          />{" "}
+          Symbols
+        </label>
       </div>
 
-      <Footer />
-    </>
+      <button
+        onClick={generatePassword}
+        className="w-full bg-black text-white py-3 rounded-xl mt-8"
+      >
+        Generate Password
+      </button>
+
+      {password && (
+        <>
+          <input
+            readOnly
+            value={password}
+            className="w-full border rounded-xl mt-8 p-4 font-mono text-center"
+          />
+
+          <div className="flex justify-between items-center mt-5">
+            <span className="font-semibold">
+              Strength: {strength}
+            </span>
+
+            <button
+              onClick={copyPassword}
+              className="border px-5 py-2 rounded-lg"
+            >
+              {copied ? "Copied!" : "Copy"}
+            </button>
+          </div>
+        </>
+      )}
+    </ToolLayout>
   );
 }
