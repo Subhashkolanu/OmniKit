@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 
+  <!-- Google Search Console Verification -->
   <meta
     name="google-site-verification"
     content="jgJ2gs1zPsryT5E_C1ZGMo6fn6TA8KsfDiNfd6GeTgE"
@@ -14,7 +15,7 @@
 
   <meta
     name="description"
-    content="OmniKit is a free collection of browser-based tools including Password Generator, PDF Merger, Image Compressor, QR Code Generator, JSON Formatter, Unit Converter, Color Converter, and more."
+    content="OmniKit is a free collection of browser-based tools including Password Generator, PDF Merger, Image Compressor, QR Code Generator, JSON Formatter, Unit Converter, Color Converter, Image Converter, Image Resizer, and more."
   />
 
   <meta
@@ -32,13 +33,22 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="OmniKit – Free Online Developer & Productivity Tools" />
+  <meta
+    property="og:title"
+    content="OmniKit – Free Online Developer & Productivity Tools"
+  />
   <meta
     property="og:description"
-    content="Fast, free, browser-based online tools for developers, students, and creators."
+    content="Fast, free, browser-based online tools for developers, students and creators."
   />
-  <meta property="og:url" content="https://getomnikit.vercel.app/" />
-  <meta property="og:image" content="https://getomnikit.vercel.app/favicon.png" />
+  <meta
+    property="og:url"
+    content="https://getomnikit.vercel.app/"
+  />
+  <meta
+    property="og:image"
+    content="https://getomnikit.vercel.app/favicon.png"
+  />
   <meta property="og:site_name" content="OmniKit" />
 
   <!-- Twitter -->
@@ -55,10 +65,23 @@
     name="twitter:image"
     content="https://getomnikit.vercel.app/favicon.png"
   />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ1ZXXWYYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-YZ1ZXXWYYW");
+  </script>
 </head>
 
 <body>
   <div id="root"></div>
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
