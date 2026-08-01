@@ -41,63 +41,99 @@ export default function Tools() {
     <>
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <h1 className="text-5xl font-bold text-center">
-          Explore Tools
-        </h1>
+      <main className="min-h-screen bg-gray-50">
 
-        <p className="text-center text-gray-600 mt-4">
-          Powerful online tools to boost your productivity.
-        </p>
+        <section className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="mt-10">
-          <input
-            type="text"
-            placeholder="Search tools..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full border rounded-xl px-5 py-4"
-          />
-        </div>
+          {/* Header */}
+          <div className="text-center">
 
-        <div className="flex flex-wrap gap-3 mt-6 justify-center">
-          {categories.map((item) => (
-            <button
-              key={item}
-              onClick={() => setCategory(item)}
-              className={`px-5 py-2 rounded-full border transition ${
-                category === item
-                  ? "bg-black text-white"
-                  : "bg-white hover:bg-gray-100"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
+            <span className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full font-medium mb-5">
+              🛠 OmniKit Collection
+            </span>
 
-        <p className="text-gray-500 mt-8">
-          {filteredTools.length} tool(s) found
-        </p>
+            <h1 className="text-5xl md:text-6xl font-extrabold">
+              Explore All Tools
+            </h1>
 
-        {filteredTools.length === 0 ? (
-          <div className="text-center py-20">
-            <h2 className="text-3xl font-semibold">
-              No tools found
-            </h2>
-
-            <p className="text-gray-500 mt-3">
-              Try searching with another keyword.
+            <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto">
+              Browse all {tools.length} browser-based tools designed
+              for developers, students and creators.
             </p>
+
           </div>
-        ) : (
-          <div className="grid md:grid-cols-3 gap-8 mt-8">
-            {filteredTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
+
+          {/* Search */}
+          <div className="mt-12">
+
+            <input
+              type="text"
+              placeholder="Search tools..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full rounded-2xl border border-gray-300 bg-white px-6 py-4 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+          </div>
+
+          {/* Categories */}
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+
+            {categories.map((item) => (
+              <button
+                key={item}
+                onClick={() => setCategory(item)}
+                className={`px-5 py-2 rounded-full font-medium transition ${
+                  category === item
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-white border border-gray-300 hover:bg-gray-100"
+                }`}
+              >
+                {item}
+              </button>
             ))}
+
           </div>
-        )}
-      </div>
+
+          {/* Counter */}
+          <p className="mt-10 text-gray-500">
+            Showing <strong>{filteredTools.length}</strong> of{" "}
+            <strong>{tools.length}</strong> tools
+          </p>
+
+          {/* Grid */}
+          {filteredTools.length === 0 ? (
+
+            <div className="mt-16 bg-white border rounded-2xl shadow-sm p-12 text-center">
+
+              <h2 className="text-3xl font-bold">
+                No tools found
+              </h2>
+
+              <p className="mt-4 text-gray-500">
+                Try another keyword or category.
+              </p>
+
+            </div>
+
+          ) : (
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+
+              {filteredTools.map((tool) => (
+                <ToolCard
+                  key={tool.id}
+                  tool={tool}
+                />
+              ))}
+
+            </div>
+
+          )}
+
+        </section>
+
+      </main>
 
       <Footer />
     </>

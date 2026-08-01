@@ -1,42 +1,47 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function SearchBar() {
-  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = () => {
-    if (search.trim() !== "") {
-      navigate(`/tools?search=${encodeURIComponent(search)}`);
+  function handleSearch() {
+    const text = query.trim();
+
+    if (text) {
+      navigate(`/tools?search=${encodeURIComponent(text)}`);
     } else {
       navigate("/tools");
     }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
+  }
 
   return (
-    <section className="max-w-3xl mx-auto px-6">
-      <div className="flex border rounded-xl overflow-hidden shadow-sm">
+    <section className="max-w-5xl mx-auto px-6 -mt-8 mb-20">
+      <div className="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl shadow-lg p-4">
+
+        {/* Search Icon */}
+        <div className="text-2xl">
+          🔍
+        </div>
+
+        {/* Input */}
         <input
           type="text"
-          placeholder="Search for a tool..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="flex-1 px-5 py-4 outline-none"
+          placeholder="Search tools..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          className="flex-1 text-lg outline-none placeholder:text-gray-400"
         />
 
+        {/* Button */}
         <button
           onClick={handleSearch}
-          className="bg-black text-white px-6 hover:bg-gray-800 transition"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
         >
           Search
         </button>
+
       </div>
     </section>
   );
