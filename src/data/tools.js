@@ -47,6 +47,22 @@ const tools = [
   icon: "📏",
   path: "/tools/unit-converter",
 },
+{
+  id: 7,
+  name: "Color Converter",
+  category: "Developer",
+  description: "Convert HEX and RGB colors instantly.",
+  icon: "🎨",
+  path: "/tools/color-converter",
+},
+{
+  id: 8,
+  name: "Number Base Converter",
+  category: "Developer",
+  description: "Convert between Binary, Octal, Decimal and Hexadecimal.",
+  icon: "🔢",
+  path: "/tools/number-base-converter",
+},
 ];
 
 export default tools;

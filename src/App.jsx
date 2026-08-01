@@ -9,6 +9,8 @@ import QRCodeGenerator from "./tools/QRCodeGenerator";
 import JSONFormatter from "./tools/JSONFormatter";
 import TextCaseConverter from "./tools/TextCaseConverter";
 import UnitConverter from "./tools/UnitConverter";
+import ColorConverter from "./tools/ColorConverter";
+import NumberBaseConverter from "./tools/NumberBaseConverter";
 
 function App() {
   return (
@@ -42,6 +44,14 @@ function App() {
 <Route
   path="/tools/unit-converter"
   element={<UnitConverter />}
+/>
+<Route
+  path="/tools/color-converter"
+  element={<ColorConverter />}
+/>
+<Route
+  path="/tools/number-base-converter"
+  element={<NumberBaseConverter />}
 />
     </Routes>
     
