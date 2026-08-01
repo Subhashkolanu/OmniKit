@@ -1,31 +1,38 @@
+<div align="center">
+
 # OmniKit
 
-<p align="center">
-  <img src="public/logo.png" width="120" alt="OmniKit Logo">
-</p>
+### All Tools. One Place.
 
-<p align="center">
-  <b>All Tools. One Place.</b>
-</p>
+A modern collection of fast, browser-based utilities built with React, Vite and Tailwind CSS.
 
-<p align="center">
-A modern collection of browser-based utilities built with React, Vite and Tailwind CSS.
-</p>
+🌐 Live Demo:
+https://getomnikit.vercel.app
+
+</div>
+
+---
+
+## About
+
+OmniKit is an open-source collection of useful online tools designed for developers, students, and creators.
+
+Everything runs directly in your browser without requiring installation or registration.
 
 ---
 
 ## Features
 
-- 12 browser-based tools
 - Fast and responsive UI
-- No installation required
-- Privacy-friendly
-- Open Source
-- Mobile Friendly
+- 100% browser-based
+- Mobile friendly
+- Open source
+- Modern React architecture
+- Clean and intuitive interface
 
 ---
 
-## Available Tools
+## Included Tools
 
 - Password Generator
 - Word Counter
@@ -44,11 +51,12 @@ A modern collection of browser-based utilities built with React, Vite and Tailwi
 
 ## Tech Stack
 
-- React
+- React 19
 - Vite
 - Tailwind CSS
-- JavaScript
 - React Router
+- PDF-lib
+- Browser Image Compression
 
 ---
 
@@ -66,7 +74,7 @@ npm run dev
 
 ---
 
-## Build
+## Production Build
 
 ```bash
 npm run build
@@ -74,24 +82,65 @@ npm run build
 
 ---
 
-## Future Roadmap
+## Project Structure
 
-- More online tools
-- Dark Mode
-- Tool Favorites
-- PWA Support
-- Multi-language Support
+```
+src/
+ ├── components/
+ ├── layouts/
+ ├── pages/
+ ├── tools/
+ ├── data/
+ ├── assets/
+ └── App.jsx
+```
+
+---
+
+## Live Website
+
+https://getomnikit.vercel.app
+
+---
+
+## Roadmap
+
+### v1.1
+
+- PDF Splitter
+- PDF Compressor
+- Image Crop Tool
+- Image Watermark
+- Markdown Preview
+- UUID Generator
+
+### v2.0
+
+- AI Tools
+- Authentication
+- User Favorites
+- Cloud Sync
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
+Fork the repository and submit a Pull Request.
 
 ---
 
 ## Author
 
-**Sai Subhash Kolanu**
+### Sai Subhash Kolanu
 
-GitHub:
+GitHub
+
 https://github.com/Subhashkolanu
 
-LinkedIn:
+LinkedIn
+
 https://www.linkedin.com/in/sai-subhash-kolanu-358ba0376/
 
 ---
@@ -99,3 +148,7 @@ https://www.linkedin.com/in/sai-subhash-kolanu-358ba0376/
 ## License
 
 MIT License
+
+---
+
+⭐ Star the repository if you found OmniKit useful.

@@ -1,4 +1,4 @@
-# Logs
+git commit -m "fix: rename JSONFormatter for Linux compatibility"# Logs
 logs
 *.log
 npm-debug.log*
