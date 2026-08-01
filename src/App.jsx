@@ -7,6 +7,7 @@ import PasswordGenerator from "./tools/PasswordGenerator";
 import WordCounter from "./tools/WordCounter";
 import QRCodeGenerator from "./tools/QRCodeGenerator";
 import JSONFormatter from "./tools/JSONFormatter";
+import TextCaseConverter from "./tools/TextCaseConverter";
 
 function App() {
   return (
@@ -33,7 +34,12 @@ function App() {
         path="/tools/json-formatter"
         element={<JSONFormatter />}
       />
+      <Route
+  path="/tools/text-case-converter"
+  element={<TextCaseConverter />}
+/>
     </Routes>
+    
   );
 }
 

@@ -1,58 +1,71 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b shadow-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
         <Link
           to="/"
-          className="text-3xl font-bold text-gray-900 hover:text-blue-600 transition"
+          className="flex items-center gap-2 text-2xl font-bold tracking-tight"
         >
-          OmniKit
+          <span className="text-3xl">🧰</span>
+          <span>OmniKit</span>
         </Link>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 text-lg">
-          <Link
+        {/* Navigation */}
+        <nav className="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+
+          <NavLink
             to="/"
-            className="hover:text-blue-600 transition"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition"
+            }
           >
             Home
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/tools"
-            className="hover:text-blue-600 transition"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition"
+            }
           >
             Tools
-          </Link>
+          </NavLink>
 
-          <Link
-            to="/about"
-            className="hover:text-blue-600 transition"
+          <a
+            href="#features"
+            className="hover:text-black transition"
           >
-            About
-          </Link>
+            Features
+          </a>
 
-          <Link
-            to="/contact"
-            className="hover:text-blue-600 transition"
+          <a
+            href="https://github.com/Subhashkolanu"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-black transition"
           >
-            Contact
-          </Link>
-        </div>
+            GitHub
+          </a>
 
-        {/* Explore Tools Button */}
+        </nav>
+
+        {/* CTA */}
         <Link
           to="/tools"
-          className="bg-black text-white px-5 py-3 rounded-xl hover:bg-gray-800 transition"
+          className="bg-black text-white px-5 py-2.5 rounded-xl hover:bg-gray-800 transition-all duration-300 shadow-sm hover:shadow-lg"
         >
-          Explore Tools
+          Launch →
         </Link>
 
       </div>
-    </nav>
+    </header>
   );
 }
