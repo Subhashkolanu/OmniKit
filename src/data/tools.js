@@ -39,22 +39,14 @@ const tools = [
     icon: "🔤",
     path: "/tools/text-case-converter",
   },
-  {
-    id: 6,
-    name: "Image Compressor",
-    category: "Image",
-    description: "Compress images without losing quality.",
-    icon: "🖼️",
-    path: "/tools/image-compressor",
-  },
-  {
-    id: 7,
-    name: "PDF Merger",
-    category: "PDF",
-    description: "Merge multiple PDF files into one.",
-    icon: "📄",
-    path: "/tools/pdf-merger",
-  },
+{
+  id: 6,
+  name: "Unit Converter",
+  category: "Utility",
+  description: "Convert length, weight and volume instantly.",
+  icon: "📏",
+  path: "/tools/unit-converter",
+},
 ];
 
 export default tools;

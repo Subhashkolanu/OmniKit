@@ -8,6 +8,7 @@ import WordCounter from "./tools/WordCounter";
 import QRCodeGenerator from "./tools/QRCodeGenerator";
 import JSONFormatter from "./tools/JSONFormatter";
 import TextCaseConverter from "./tools/TextCaseConverter";
+import UnitConverter from "./tools/UnitConverter";
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
       <Route
   path="/tools/text-case-converter"
   element={<TextCaseConverter />}
+/>
+<Route
+  path="/tools/unit-converter"
+  element={<UnitConverter />}
 />
     </Routes>
     
