@@ -1,28 +1,39 @@
 import { Link } from "react-router-dom";
+import Card from "./ui/Card";
+import Button from "./ui/Button";
 
 export default function ToolCard({ tool }) {
   return (
-    <div className="border rounded-xl p-6 hover:shadow-xl transition duration-300">
-      <div className="text-5xl mb-4">{tool.icon}</div>
+    <Card className="p-6 group hover:-translate-y-2">
 
-      <h3 className="text-2xl font-semibold">
+      <div className="flex items-center justify-between">
+
+        <div className="text-5xl">
+          {tool.icon}
+        </div>
+
+        <span className="text-xs bg-gray-100 px-3 py-1 rounded-full">
+          {tool.category}
+        </span>
+
+      </div>
+
+      <h2 className="text-2xl font-bold mt-6">
         {tool.name}
-      </h3>
+      </h2>
 
-      <span className="inline-block mt-3 bg-gray-100 px-3 py-1 rounded-full text-sm">
-        {tool.category}
-      </span>
-
-      <p className="text-gray-600 mt-4">
+      <p className="text-gray-600 mt-3 min-h-[60px]">
         {tool.description}
       </p>
 
-      <Link
-        to={tool.path}
-        className="inline-block mt-6 bg-black text-white px-5 py-2 rounded-lg"
-      >
-        Open Tool
-      </Link>
-    </div>
+      <div className="mt-6">
+        <Link to={tool.path}>
+          <Button>
+            Open Tool →
+          </Button>
+        </Link>
+      </div>
+
+    </Card>
   );
 }
