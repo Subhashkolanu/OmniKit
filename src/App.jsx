@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Tools from "./pages/Tools";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 import PasswordGenerator from "./tools/PasswordGenerator";
 import WordCounter from "./tools/WordCounter";
@@ -11,6 +14,10 @@ import TextCaseConverter from "./tools/TextCaseConverter";
 import UnitConverter from "./tools/UnitConverter";
 import ColorConverter from "./tools/ColorConverter";
 import NumberBaseConverter from "./tools/NumberBaseConverter";
+import ImageCompressor from "./tools/ImageCompressor";
+import PDFMerger from "./tools/PDFMerger";
+import ImageResizer from "./tools/ImageResizer";
+import ImageConverter from "./tools/ImageConverter";
 
 function App() {
   return (
@@ -52,6 +59,24 @@ function App() {
 <Route
   path="/tools/number-base-converter"
   element={<NumberBaseConverter />}
+/>
+<Route path="/about" element={<About />} />
+<Route path="/contact" element={<Contact />} />
+<Route
+  path="/tools/image-compressor"
+  element={<ImageCompressor />}
+/>
+<Route
+  path="/tools/pdf-merger"
+  element={<PDFMerger />}
+/>
+<Route
+  path="/tools/image-resizer"
+  element={<ImageResizer />}
+/>
+<Route
+  path="/tools/image-converter"
+  element={<ImageConverter />}
 />
     </Routes>
     

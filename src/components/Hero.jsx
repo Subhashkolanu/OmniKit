@@ -1,67 +1,92 @@
 import { Link } from "react-router-dom";
+import tools from "../data/tools";
 
 export default function Hero() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-24 text-center">
 
-      <div className="inline-flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 mb-8">
+      {/* Version Badge */}
+      <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 rounded-full px-4 py-2 mb-8">
         <span>🚀</span>
-        <span className="text-sm font-medium">
+        <span className="text-sm font-semibold">
           OmniKit v0.7.0 Alpha
         </span>
       </div>
 
-      <h1 className="text-6xl font-extrabold leading-tight">
-        The Ultimate
+      {/* Heading */}
+      <h1 className="text-6xl md:text-7xl font-extrabold leading-tight">
+        All Your Essential
         <br />
-        Online Toolkit
+        <span className="text-blue-600">
+          Tools in One Place
+        </span>
       </h1>
 
-      <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
-        Powerful online tools for developers, students and creators.
-        Fast, free and open source.
+      {/* Description */}
+      <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-8">
+        OmniKit is a fast, free, and open-source collection of online tools
+        designed for developers, students, and creators.
+        Everything works directly in your browser—no installation required.
       </p>
 
-      <div className="mt-10 flex justify-center gap-4">
+      {/* Buttons */}
+      <div className="mt-10 flex flex-wrap justify-center gap-4">
 
         <Link
           to="/tools"
-          className="bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition"
+          className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition shadow-lg"
         >
-          Launch Tools →
+          🚀 Explore Tools
         </Link>
 
         <a
           href="https://github.com/Subhashkolanu"
           target="_blank"
           rel="noreferrer"
-          className="border px-8 py-4 rounded-xl hover:bg-gray-100 transition"
+          className="border border-gray-300 px-8 py-4 rounded-xl hover:bg-gray-100 transition"
         >
-          GitHub
+          ⭐ GitHub
         </a>
 
       </div>
 
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+      {/* Stats */}
+      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
 
-        <div className="border rounded-2xl p-6">
-          <h2 className="text-4xl font-bold">8+</h2>
-          <p className="text-gray-500 mt-2">Working Tools</p>
+        <div className="bg-white border rounded-2xl shadow-sm p-6 hover:shadow-lg transition">
+          <h2 className="text-4xl font-bold text-blue-600">
+            8+
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Powerful Tools
+          </p>
         </div>
 
-        <div className="border rounded-2xl p-6">
-          <h2 className="text-4xl font-bold">100%</h2>
-          <p className="text-gray-500 mt-2">Free</p>
+        <div className="bg-white border rounded-2xl shadow-sm p-6 hover:shadow-lg transition">
+          <h2 className="text-4xl font-bold text-green-600">
+            100%
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Browser Based
+          </p>
         </div>
 
-        <div className="border rounded-2xl p-6">
-          <h2 className="text-4xl font-bold">⚡</h2>
-          <p className="text-gray-500 mt-2">Fast</p>
+        <div className="bg-white border rounded-2xl shadow-sm p-6 hover:shadow-lg transition">
+          <h2 className="text-4xl">
+            ⚡
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Lightning Fast
+          </p>
         </div>
 
-        <div className="border rounded-2xl p-6">
-          <h2 className="text-4xl font-bold">🌍</h2>
-          <p className="text-gray-500 mt-2">Open Source</p>
+        <div className="bg-white border rounded-2xl shadow-sm p-6 hover:shadow-lg transition">
+          <h2 className="text-4xl">
+            🌍
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Open Source
+          </p>
         </div>
 
       </div>

@@ -63,6 +63,38 @@ const tools = [
   icon: "🔢",
   path: "/tools/number-base-converter",
 },
+{
+  id: 9,
+  name: "Image Compressor",
+  category: "Image",
+  description: "Compress JPG and PNG images directly in your browser.",
+  icon: "🖼️",
+  path: "/tools/image-compressor",
+},
+{
+  id: 10,
+  name: "PDF Merger",
+  category: "PDF",
+  description: "Merge multiple PDF files into one.",
+  icon: "📄",
+  path: "/tools/pdf-merger",
+},
+{
+  id: 11,
+  name: "Image Resizer",
+  category: "Image",
+  description: "Resize images by width and height.",
+  icon: "📐",
+  path: "/tools/image-resizer",
+},
+{
+  id: 12,
+  name: "Image Format Converter",
+  category: "Image",
+  description: "Convert PNG, JPG and WEBP images.",
+  icon: "🔄",
+  path: "/tools/image-converter",
+},
 ];
 
 export default tools;
