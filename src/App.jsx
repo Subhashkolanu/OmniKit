@@ -19,67 +19,85 @@ import PDFMerger from "./tools/PDFMerger";
 import ImageResizer from "./tools/ImageResizer";
 import ImageConverter from "./tools/ImageConverter";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/tools" element={<Tools />} />
+    <>
+      <ScrollToTop />
 
-      <Route
-        path="/tools/password-generator"
-        element={<PasswordGenerator />}
-      />
+      <Routes>
+        {/* Pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/tools" element={<Tools />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
 
-      <Route
-        path="/tools/word-counter"
-        element={<WordCounter />}
-      />
+        {/* Tools */}
+        <Route
+          path="/tools/password-generator"
+          element={<PasswordGenerator />}
+        />
 
-      <Route
-        path="/tools/qr-generator"
-        element={<QRCodeGenerator />}
-      />
+        <Route
+          path="/tools/word-counter"
+          element={<WordCounter />}
+        />
 
-      <Route
-        path="/tools/json-formatter"
-        element={<JSONFormatter />}
-      />
-      <Route
-  path="/tools/text-case-converter"
-  element={<TextCaseConverter />}
-/>
-<Route
-  path="/tools/unit-converter"
-  element={<UnitConverter />}
-/>
-<Route
-  path="/tools/color-converter"
-  element={<ColorConverter />}
-/>
-<Route
-  path="/tools/number-base-converter"
-  element={<NumberBaseConverter />}
-/>
-<Route path="/about" element={<About />} />
-<Route path="/contact" element={<Contact />} />
-<Route
-  path="/tools/image-compressor"
-  element={<ImageCompressor />}
-/>
-<Route
-  path="/tools/pdf-merger"
-  element={<PDFMerger />}
-/>
-<Route
-  path="/tools/image-resizer"
-  element={<ImageResizer />}
-/>
-<Route
-  path="/tools/image-converter"
-  element={<ImageConverter />}
-/>
-    </Routes>
-    
+        <Route
+          path="/tools/qr-generator"
+          element={<QRCodeGenerator />}
+        />
+
+        <Route
+          path="/tools/json-formatter"
+          element={<JSONFormatter />}
+        />
+
+        <Route
+          path="/tools/text-case-converter"
+          element={<TextCaseConverter />}
+        />
+
+        <Route
+          path="/tools/unit-converter"
+          element={<UnitConverter />}
+        />
+
+        <Route
+          path="/tools/color-converter"
+          element={<ColorConverter />}
+        />
+
+        <Route
+          path="/tools/number-base-converter"
+          element={<NumberBaseConverter />}
+        />
+
+        <Route
+          path="/tools/image-compressor"
+          element={<ImageCompressor />}
+        />
+
+        <Route
+          path="/tools/pdf-merger"
+          element={<PDFMerger />}
+        />
+
+        <Route
+          path="/tools/image-resizer"
+          element={<ImageResizer />}
+        />
+
+        <Route
+          path="/tools/image-converter"
+          element={<ImageConverter />}
+        />
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 

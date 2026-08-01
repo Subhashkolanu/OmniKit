@@ -4,31 +4,35 @@ import Button from "./ui/Button";
 
 export default function ToolCard({ tool }) {
   return (
-    <Card className="p-6 group hover:-translate-y-2">
+    <Card className="group p-6 flex flex-col h-full border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
 
-      <div className="flex items-center justify-between">
+      {/* Header */}
+      <div className="flex items-start justify-between">
 
-        <div className="text-5xl">
+        <div className="text-5xl transition-transform duration-300 group-hover:scale-110">
           {tool.icon}
         </div>
 
-        <span className="text-xs bg-gray-100 px-3 py-1 rounded-full">
+        <span className="bg-blue-50 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full">
           {tool.category}
         </span>
 
       </div>
 
-      <h2 className="text-2xl font-bold mt-6">
+      {/* Title */}
+      <h2 className="mt-6 text-2xl font-bold text-gray-900">
         {tool.name}
       </h2>
 
-      <p className="text-gray-600 mt-3 min-h-[60px]">
+      {/* Description */}
+      <p className="mt-3 text-gray-600 leading-7 flex-grow">
         {tool.description}
       </p>
 
-      <div className="mt-6">
+      {/* Button */}
+      <div className="mt-8">
         <Link to={tool.path}>
-          <Button>
+          <Button className="w-full">
             Open Tool →
           </Button>
         </Link>
