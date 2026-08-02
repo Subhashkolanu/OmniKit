@@ -18,6 +18,9 @@ import ImageCompressor from "./tools/ImageCompressor";
 import PDFMerger from "./tools/PDFMerger";
 import ImageResizer from "./tools/ImageResizer";
 import ImageConverter from "./tools/ImageConverter";
+import ImageToPDF from "./tools/ImageToPDF";
+import PDFSplitter from "./tools/PDFSplitter";
+import PDFCompressor from "./tools/PDFCompressor";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -93,6 +96,18 @@ function App() {
           path="/tools/image-converter"
           element={<ImageConverter />}
         />
+        <Route
+  path="/tools/image-to-pdf"
+  element={<ImageToPDF />}
+/>
+<Route
+  path="/tools/pdf-splitter"
+  element={<PDFSplitter />}
+/>
+<Route
+  path="/tools/pdf-compressor"
+  element={<PDFCompressor />}
+/>
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
