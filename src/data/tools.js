@@ -95,6 +95,29 @@ const tools = [
   icon: "🔄",
   path: "/tools/image-converter",
 },
+{
+  id: 13,
+  name: "Image to PDF",
+  category: "PDF",
+  description: "Convert multiple images into a single PDF document.",
+  icon: "🖼️",
+  path: "/tools/image-to-pdf",
+},
+{
+  id: 14,
+  name: "PDF Splitter",
+  category: "PDF",
+  description: "Split PDF files by selecting specific pages.",
+  icon: "✂️",
+  path: "/tools/pdf-splitter",
+},{
+  id: 15,
+  name: "PDF Compressor",
+  category: "PDF",
+  description: "Compress PDF files directly in your browser.",
+  icon: "🗜️",
+  path: "/tools/pdf-compressor",
+},
 ];
 
 export default tools;
