@@ -29,6 +29,7 @@ import MarkdownPreview from "./tools/MarkdownPreview";
 import LoremIpsumGenerator from "./tools/LoremIpsumGenerator";
 import JWTDecoder from "./tools/JWTDecoder";
 import RegexTester from "./tools/RegexTester";
+import QRCodeScanner from "./tools/QRCodeScanner";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -144,6 +145,9 @@ function App() {
 <Route
   path="/tools/regex-tester"
   element={<RegexTester />}
+/><Route
+  path="/tools/qr-code-scanner"
+  element={<QRCodeScanner />}
 />
 
         {/* 404 */}

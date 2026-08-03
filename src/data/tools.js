@@ -179,6 +179,14 @@ const tools = [
   icon: "🔍",
   path: "/tools/regex-tester",
 },
+{
+  id: 24,
+  name: "QR Code Scanner",
+  category: "Utility",
+  description: "Scan QR codes from uploaded images.",
+  icon: "📷",
+  path: "/tools/qr-code-scanner",
+},
 ];
 
 export default tools;
