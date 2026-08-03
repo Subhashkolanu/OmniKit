@@ -21,6 +21,7 @@ import ImageConverter from "./tools/ImageConverter";
 import ImageToPDF from "./tools/ImageToPDF";
 import PDFSplitter from "./tools/PDFSplitter";
 import PDFCompressor from "./tools/PDFCompressor";
+import UUIDGenerator from "./tools/UUIDGenerator";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -107,6 +108,9 @@ function App() {
 <Route
   path="/tools/pdf-compressor"
   element={<PDFCompressor />}
+/><Route
+  path="/tools/uuid-generator"
+  element={<UUIDGenerator />}
 />
 
         {/* 404 */}

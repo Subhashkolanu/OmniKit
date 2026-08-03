@@ -118,6 +118,14 @@ const tools = [
   icon: "🗜️",
   path: "/tools/pdf-compressor",
 },
+{
+  id: 16,
+  name: "UUID Generator",
+  category: "Developer",
+  description: "Generate secure UUID v4 identifiers instantly.",
+  icon: "🆔",
+  path: "/tools/uuid-generator",
+},
 ];
 
 export default tools;
