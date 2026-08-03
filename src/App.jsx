@@ -22,6 +22,7 @@ import ImageToPDF from "./tools/ImageToPDF";
 import PDFSplitter from "./tools/PDFSplitter";
 import PDFCompressor from "./tools/PDFCompressor";
 import UUIDGenerator from "./tools/UUIDGenerator";
+import HashGenerator from "./tools/HashGenerator";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -111,6 +112,10 @@ function App() {
 /><Route
   path="/tools/uuid-generator"
   element={<UUIDGenerator />}
+/>
+<Route
+  path="/tools/hash-generator"
+  element={<HashGenerator />}
 />
 
         {/* 404 */}

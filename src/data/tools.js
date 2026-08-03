@@ -126,6 +126,14 @@ const tools = [
   icon: "🆔",
   path: "/tools/uuid-generator",
 },
+{
+  id: 17,
+  name: "Hash Generator",
+  category: "Developer",
+  description: "Generate SHA-256 hashes for any text.",
+  icon: "#️⃣",
+  path: "/tools/hash-generator",
+},
 ];
 
 export default tools;
