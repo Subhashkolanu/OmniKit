@@ -118,6 +118,51 @@ const tools = [
   icon: "🗜️",
   path: "/tools/pdf-compressor",
 },
+{
+  id: 16,
+  name: "UUID Generator",
+  category: "Developer",
+  description: "Generate secure UUID v4 identifiers instantly.",
+  icon: "🆔",
+  path: "/tools/uuid-generator",
+},
+{
+  id: 17,
+  name: "Hash Generator",
+  category: "Developer",
+  description: "Generate SHA-256 hashes for any text.",
+  icon: "#️⃣",
+  path: "/tools/hash-generator",
+},{
+  id: 18,
+  name: "Base64 Encoder / Decoder",
+  category: "Developer",
+  description: "Encode and decode Base64 text instantly.",
+  icon: "🔐",
+  path: "/tools/base64-converter",
+},{
+  id: 19,
+  name: "URL Encoder / Decoder",
+  category: "Developer",
+  description: "Encode and decode URLs instantly.",
+  icon: "🔗",
+  path: "/tools/url-encoder-decoder",
+},
+{
+  id: 20,
+  name: "Markdown Preview",
+  category: "Developer",
+  description: "Write Markdown and preview it instantly.",
+  icon: "📄",
+  path: "/tools/markdown-preview",
+},{
+  id: 21,
+  name: "Lorem Ipsum Generator",
+  category: "Text",
+  description: "Generate placeholder text instantly.",
+  icon: "📃",
+  path: "/tools/lorem-ipsum-generator",
+},
 ];
 
 export default tools;
