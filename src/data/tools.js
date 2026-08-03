@@ -155,6 +155,13 @@ const tools = [
   description: "Write Markdown and preview it instantly.",
   icon: "📄",
   path: "/tools/markdown-preview",
+},{
+  id: 21,
+  name: "Lorem Ipsum Generator",
+  category: "Text",
+  description: "Generate placeholder text instantly.",
+  icon: "📃",
+  path: "/tools/lorem-ipsum-generator",
 },
 ];
 
