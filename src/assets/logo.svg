@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Color Gradients -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="100%" stop-color="#00C6FF" />
+    </linearGradient>
+    
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0072FF" />
+      <stop offset="100%" stop-color="#3A7BD5" />
+    </linearGradient>
+
+    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8E2DE2" />
+      <stop offset="100%" stop-color="#4A00E0" />
+    </linearGradient>
+
+    <linearGradient id="glassHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05" />
+    </linearGradient>
+
+    <!-- Subtle Glass Edge Shadow (Sharpened) -->
+    <filter id="crispShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Central OmniKit Symbol Group (Isolated & Transparent Canvas) -->
+  <g filter="url(#crispShadow)">
+    <!-- Base Crescent Support Shape -->
+    <path d="M 160 310 C 200 380 300 380 340 310 C 270 330 230 330 160 310 Z" 
+          fill="url(#blueGrad)" />
+
+    <!-- Left Cyan Layer -->
+    <path d="M 150 250 C 150 200 200 180 230 220 C 250 250 230 300 180 300 C 160 300 150 280 150 250 Z" 
+          fill="url(#cyanGrad)" 
+          opacity="0.9" />
+
+    <!-- Top Blue Layer -->
+    <circle cx="250" cy="180" r="65" fill="url(#blueGrad)" opacity="0.85" />
+
+    <!-- Right Violet Layer -->
+    <circle cx="310" cy="260" r="65" fill="url(#violetGrad)" opacity="0.9" />
+
+    <!-- Overlapping Glassmorphism Accent Circles -->
+    <circle cx="225" cy="210" r="50" fill="url(#glassHighlight)" />
+    <circle cx="275" cy="210" r="50" fill="url(#glassHighlight)" />
+  </g>
+</svg>

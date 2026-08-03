@@ -1,15 +1,14 @@
 :root {
   --bg: #f6f7fb;
-  --surface: rgba(255, 255, 255, 0.55);
+  --surface: rgba(255, 255, 255, 0.58);
   --surface-hover: rgba(255, 255, 255, 0.72);
   --border: rgba(255, 255, 255, 0.35);
+
   --text: #111827;
   --text-secondary: #6b7280;
   --accent: #2563eb;
 
-  --shadow:
-    0 8px 32px rgba(31, 38, 135, 0.08);
-
+  --shadow: 0 10px 35px rgba(31, 38, 135, 0.08);
   --blur: blur(18px);
 }
 
@@ -18,56 +17,147 @@
   --surface: rgba(18, 24, 38, 0.58);
   --surface-hover: rgba(28, 36, 54, 0.75);
   --border: rgba(255, 255, 255, 0.08);
+
   --text: #f8fafc;
   --text-secondary: #94a3b8;
   --accent: #3b82f6;
 
-  --shadow:
-    0 8px 32px rgba(0, 0, 0, 0.35);
-}html,
+  --shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body,
 #root {
+  width: 100%;
   min-height: 100%;
 }
 
 body {
   margin: 0;
   font-family: Inter, sans-serif;
-  background:
-    radial-gradient(circle at top left, #dbeafe 0%, transparent 35%),
-    radial-gradient(circle at top right, #ede9fe 0%, transparent 35%),
-    var(--bg);
-
   color: var(--text);
-
-  transition: .3s ease;
+  background: var(--bg);
+  overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
-.dark body {
+/* ---------- Background Glow ---------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
   background:
-    radial-gradient(circle at top left,#1d4ed8 0%,transparent 25%),
-    radial-gradient(circle at bottom right,#7c3aed 0%,transparent 25%),
-    var(--bg);
-}.glass {
+    radial-gradient(circle at top left,
+      rgba(59, 130, 246, 0.18),
+      transparent 30%),
+
+    radial-gradient(circle at top right,
+      rgba(168, 85, 247, 0.12),
+      transparent 28%),
+
+    radial-gradient(circle at bottom right,
+      rgba(14, 165, 233, 0.12),
+      transparent 30%);
+}
+
+.dark body::before {
+  background:
+    radial-gradient(circle at top left,
+      rgba(37, 99, 235, 0.28),
+      transparent 22%),
+
+    radial-gradient(circle at bottom right,
+      rgba(139, 92, 246, 0.25),
+      transparent 22%),
+
+    radial-gradient(circle at center,
+      rgba(59, 130, 246, 0.08),
+      transparent 40%);
+}
+
+/* ---------- Glass ---------- */
+
+.glass {
   background: var(--surface);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
 
   border: 1px solid var(--border);
+  border-radius: 24px;
 
   box-shadow: var(--shadow);
 
-  border-radius: 24px;
+  transition: all 0.3s ease;
 }
 
 .glass:hover {
   background: var(--surface-hover);
+  transform: translateY(-2px);
 }
+
+/* ---------- Inputs ---------- */
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* ---------- Selection ---------- */
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Global Transition ---------- */
 
 * {
   transition:
-    background .25s,
-    color .25s,
-    border-color .25s,
-    transform .25s;
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }

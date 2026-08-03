@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 
 export default function ThemeToggle() {
@@ -7,13 +7,13 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="glass flex items-center justify-center w-11 h-11 rounded-full hover:scale-105 active:scale-95"
+      className="glass w-11 h-11 rounded-full flex items-center justify-center text-[var(--text)] hover:text-yellow-400 transition-all"
       aria-label="Toggle Theme"
     >
       {theme === "light" ? (
-        <Moon size={20} />
+        <FaMoon size={18} />
       ) : (
-        <Sun size={20} />
+        <FaSun size={18} className="text-yellow-400" />
       )}
     </button>
   );
