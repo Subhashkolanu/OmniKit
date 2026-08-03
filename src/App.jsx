@@ -27,6 +27,7 @@ import Base64Converter from "./tools/Base64Converter";
 import URLEncoderDecoder from "./tools/URLEncoderDecoder";
 import MarkdownPreview from "./tools/MarkdownPreview";
 import LoremIpsumGenerator from "./tools/LoremIpsumGenerator";
+import JWTDecoder from "./tools/JWTDecoder";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -135,6 +136,9 @@ function App() {
 <Route
   path="/tools/lorem-ipsum-generator"
   element={<LoremIpsumGenerator />}
+/><Route
+  path="/tools/jwt-decoder"
+  element={<JWTDecoder />}
 />
 
         {/* 404 */}

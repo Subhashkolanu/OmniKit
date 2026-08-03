@@ -163,6 +163,14 @@ const tools = [
   icon: "📃",
   path: "/tools/lorem-ipsum-generator",
 },
+{
+  id: 22,
+  name: "JWT Decoder",
+  category: "Developer",
+  description: "Decode JWT tokens instantly.",
+  icon: "🔑",
+  path: "/tools/jwt-decoder",
+},
 ];
 
 export default tools;
