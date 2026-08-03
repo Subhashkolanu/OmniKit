@@ -186,6 +186,13 @@ const tools = [
   description: "Scan QR codes from uploaded images.",
   icon: "📷",
   path: "/tools/qr-code-scanner",
+},{
+  id: 25,
+  name: "Text Diff Checker",
+  category: "Text",
+  description: "Compare two texts and check if they are identical.",
+  icon: "📑",
+  path: "/tools/text-diff-checker",
 },
 ];
 
