@@ -1,0 +1,73 @@
+:root {
+  --bg: #f6f7fb;
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface-hover: rgba(255, 255, 255, 0.72);
+  --border: rgba(255, 255, 255, 0.35);
+  --text: #111827;
+  --text-secondary: #6b7280;
+  --accent: #2563eb;
+
+  --shadow:
+    0 8px 32px rgba(31, 38, 135, 0.08);
+
+  --blur: blur(18px);
+}
+
+.dark {
+  --bg: #070b16;
+  --surface: rgba(18, 24, 38, 0.58);
+  --surface-hover: rgba(28, 36, 54, 0.75);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent: #3b82f6;
+
+  --shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35);
+}html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background:
+    radial-gradient(circle at top left, #dbeafe 0%, transparent 35%),
+    radial-gradient(circle at top right, #ede9fe 0%, transparent 35%),
+    var(--bg);
+
+  color: var(--text);
+
+  transition: .3s ease;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top left,#1d4ed8 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#7c3aed 0%,transparent 25%),
+    var(--bg);
+}.glass {
+  background: var(--surface);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  border: 1px solid var(--border);
+
+  box-shadow: var(--shadow);
+
+  border-radius: 24px;
+}
+
+.glass:hover {
+  background: var(--surface-hover);
+}
+
+* {
+  transition:
+    background .25s,
+    color .25s,
+    border-color .25s,
+    transform .25s;
+}
