@@ -18,25 +18,62 @@ const categories = [
 
 export default function CategoryBar({ category, setCategory }) {
   return (
-    <section className="flex justify-center mt-6 mb-8">
+    <section className="max-w-7xl mx-auto px-6 mt-8 mb-10">
 
-      <div className="flex items-center gap-2 flex-wrap">
+      <div className="flex flex-wrap justify-center gap-4">
 
-        {categories.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => setCategory(item.id)}
-            className={`flex items-center gap-2 px-5 py-3 rounded-full transition-all duration-300 font-medium
-              ${
-                category === item.id
-                  ? "glass shadow-lg text-[var(--text)] scale-105"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text)]"
-              }`}
-          >
-            {item.icon}
-            <span>{item.label}</span>
-          </button>
-        ))}
+        {categories.map((item) => {
+
+          const active = category === item.id;
+
+          return (
+
+            <button
+              key={item.id}
+              onClick={() => setCategory(item.id)}
+              className={`
+                relative
+                overflow-hidden
+                flex
+                items-center
+                gap-3
+                px-6
+                py-3
+                rounded-2xl
+                font-semibold
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:scale-105
+                ${
+                  active
+                    ? "glass shadow-xl"
+                    : "hover:bg-white/10"
+                }
+              `}
+              style={{
+                color: active
+                  ? "var(--text)"
+                  : "var(--text-secondary)",
+              }}
+            >
+
+              {active && (
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-400/5 to-transparent" />
+              )}
+
+              <span className="relative z-10 text-lg">
+                {item.icon}
+              </span>
+
+              <span className="relative z-10">
+                {item.label}
+              </span>
+
+            </button>
+
+          );
+        })}
 
       </div>
 
