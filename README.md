@@ -1,154 +1,263 @@
-<div align="center">
-
-# OmniKit
-
-### All Tools. One Place.
-
-A modern collection of fast, browser-based utilities built with React, Vite and Tailwind CSS.
-
-🌐 Live Demo:
-https://getomnikit.vercel.app
-
-</div>
+Congratulations! 🎉 You've reached the point where OmniKit is ready to be presented publicly.
 
 ---
 
-## About
+# ✅ Release Checklist
 
-OmniKit is an open-source collection of useful online tools designed for developers, students, and creators.
-
-Everything runs directly in your browser without requiring installation or registration.
-
----
-
-## Features
-
-- Fast and responsive UI
-- 100% browser-based
-- Mobile friendly
-- Open source
-- Modern React architecture
-- Clean and intuitive interface
+* ✅ GitHub Push
+* ✅ Vercel Deployment
+* ✅ V2 UI
+* ✅ Responsive
+* ✅ Dark Mode
+* ✅ Testing
+* ✅ Build Success
 
 ---
 
-## Included Tools
+# 1. GitHub Release
 
-- Password Generator
-- Word Counter
-- QR Code Generator
-- JSON Formatter
-- Text Case Converter
-- Unit Converter
-- Color Converter
-- Number Base Converter
-- Image Compressor
-- Image Resizer
-- Image Converter
-- PDF Merger
+**Tag**
+
+```
+v2.0.0
+```
+
+**Title**
+
+```
+🚀 OmniKit V2 – Glass UI, New Tools & Major Redesign
+```
+
+**Description**
+
+```
+OmniKit V2 is here!
+
+This release introduces a complete platform redesign with a modern Glass UI, improved navigation, responsive layouts, dark mode enhancements, and several new developer, image, and text tools.
+
+✨ Highlights
+• Modern Glass UI
+• Responsive Design
+• Improved Dark & Light Mode
+• Redesigned Homepage
+• Faster Navigation
+• New Tool Layout
+• Better User Experience
+
+📝 Text Tools
+• Password Generator
+• Word Counter
+• Text Case Converter
+• Lorem Ipsum Generator
+• Markdown Preview
+• Text Diff Checker
+
+💻 Developer Tools
+• JSON Formatter
+• Base64 Encoder / Decoder
+• URL Encoder / Decoder
+• UUID Generator
+• Hash Generator
+• Regex Tester
+• JWT Decoder
+
+🖼️ Image Tools
+• Image Converter
+• Image Compressor
+• Image Resizer
+• Image to PDF
+
+📄 PDF Tools
+• PDF Merger
+• PDF Splitter
+• PDF Compressor
+
+🛠 Utility Tools
+• QR Code Generator
+• QR Code Scanner
+• Unit Converter
+
+Thanks to everyone who tested and supported OmniKit.
+
+More tools and improvements are planned for V2.1.
+```
 
 ---
+
+# 2. Update README
+
+At the top, add:
+
+```md
+# 🚀 OmniKit V2
+
+A modern collection of free browser-based tools for developers, students and creators.
+
+## ✨ Features
+
+- 🌐 100% Browser Based
+- 🔒 Privacy Friendly
+- ⚡ Fast Performance
+- 📱 Responsive Design
+- 🌙 Dark Mode
+- 🎨 Glass UI
+- 🛠 Multiple Categories
+
+## Categories
+
+- PDF Tools
+- Image Tools
+- Developer Tools
+- Text Tools
+- Utility Tools
 
 ## Tech Stack
 
-- React 19
+- React
 - Vite
 - Tailwind CSS
 - React Router
-- PDF-lib
-- Browser Image Compression
+- JavaScript
 
----
-
-## Installation
-
-```bash
-git clone https://github.com/Subhashkolanu/OmniKit.git
-
-cd OmniKit
-
-npm install
-
-npm run dev
-```
-
----
-
-## Production Build
-
-```bash
-npm run build
-```
-
----
-
-## Project Structure
-
-```
-src/
- ├── components/
- ├── layouts/
- ├── pages/
- ├── tools/
- ├── data/
- ├── assets/
- └── App.jsx
-```
-
----
-
-## Live Website
+## Live Demo
 
 https://getomnikit.vercel.app
 
----
+## GitHub
 
-## Roadmap
-
-### v1.1
-
-- PDF Splitter
-- PDF Compressor
-- Image Crop Tool
-- Image Watermark
-- Markdown Preview
-- UUID Generator
-
-### v2.0
-
-- AI Tools
-- Authentication
-- User Favorites
-- Cloud Sync
+https://github.com/Subhashkolanu/OmniKit
+```
 
 ---
 
-## Contributing
+# 3. GitHub Topics
 
-Contributions are welcome.
+Add:
 
-Fork the repository and submit a Pull Request.
-
----
-
-## Author
-
-### Sai Subhash Kolanu
-
-GitHub
-
-https://github.com/Subhashkolanu
-
-LinkedIn
-
-https://www.linkedin.com/in/sai-subhash-kolanu-358ba0376/
+```
+react
+vite
+tailwindcss
+javascript
+webtools
+developer-tools
+pdf-tools
+image-tools
+utility-tools
+opensource
+productivity
+```
 
 ---
 
-## License
+# 4. LinkedIn Post
 
-MIT License
+Title
+
+> 🚀 Introducing OmniKit V2
+
+Post
+
+```
+After weeks of designing, building and improving, I'm excited to share OmniKit V2.
+
+OmniKit is a collection of free browser-based tools built for developers, students and creators.
+
+✨ What's New
+• Modern Glass UI
+• Responsive Design
+• Improved Navigation
+• Dark Mode
+• Developer Tools
+• Image Tools
+• PDF Tools
+• Text Tools
+• Utility Tools
+
+Everything runs directly in your browser with no installation required.
+
+🔗 Live Demo:
+https://getomnikit.vercel.app
+
+💻 GitHub:
+https://github.com/Subhashkolanu/OmniKit
+
+I'd love to hear your feedback and suggestions!
+```
 
 ---
 
-⭐ Star the repository if you found OmniKit useful.
+# 5. X (Twitter)
+
+```
+🚀 OmniKit V2 is live!
+
+A free browser-based toolkit for developers, students and creators.
+
+✨ Glass UI
+🌙 Dark Mode
+📱 Responsive
+🛠 PDF, Image, Text & Developer Tools
+
+Try it:
+https://getomnikit.vercel.app
+
+#react #vite #opensource #webdev
+```
+
+---
+
+# 6. Instagram Caption
+
+```
+🚀 OmniKit V2 is now live!
+
+Free online tools for developers, students and creators.
+
+✨ Modern UI
+⚡ Fast
+🌙 Dark Mode
+📱 Responsive
+
+🔗 Link in bio
+```
+
+---
+
+# 7. WhatsApp
+
+```
+🚀 OmniKit V2 is now live!
+
+A free browser-based toolkit with PDF, Image, Developer, Text and Utility tools.
+
+Try it:
+https://getomnikit.vercel.app
+
+I'd love your feedback!
+```
+
+---
+
+# 8. Reddit
+
+Share in relevant communities (if their rules allow it), for example:
+
+* r/webdev
+* r/reactjs
+* r/opensource
+* r/SideProject
+
+Focus on asking for feedback rather than self-promotion.
+
+---
+
+# 9. Product Hunt (Optional)
+
+Once you've gathered feedback and fixed any issues, consider launching there.
+
+---
+
+# 🎯 Final Recommendation
+
+Before posting everywhere, spend **15–20 minutes** clicking through every tool one last time on the live site. If everything works smoothly, publish the GitHub release, then share it on LinkedIn, GitHub, WhatsApp, X, and Instagram. That sequence gives you a polished launch and makes it easier to collect useful feedback for OmniKit V2.1.
