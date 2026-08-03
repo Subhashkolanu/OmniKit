@@ -1,5 +1,10 @@
 import { useState } from "react";
+
 import ToolLayout from "../layouts/ToolLayout";
+
+import GlassTextarea from "../components/common/GlassTextarea";
+import GlassCard from "../components/common/GlassCard";
+import PrimaryButton from "../components/common/PrimaryButton";
 
 export default function WordCounter() {
   const [text, setText] = useState("");
@@ -12,7 +17,8 @@ export default function WordCounter() {
 
   const characters = text.length;
 
-  const charactersWithoutSpaces = text.replace(/\s/g, "").length;
+  const charactersWithoutSpaces =
+    text.replace(/\s/g, "").length;
 
   const sentences =
     text.trim() === ""
@@ -45,61 +51,68 @@ export default function WordCounter() {
       title="Word & Character Counter"
       description="Analyze your text instantly."
     >
-      <textarea
+
+      <GlassTextarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Start typing..."
         rows={10}
-        className="w-full border rounded-xl p-4 resize-none"
       />
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-        <div className="border rounded-xl p-4">
-          <h3 className="font-semibold">📝 Words</h3>
-          <p className="text-2xl">{words}</p>
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-8">
 
-        <div className="border rounded-xl p-4">
-          <h3 className="font-semibold">🔤 Characters</h3>
-          <p className="text-2xl">{characters}</p>
-        </div>
+        <GlassCard className="text-center">
+          <h3 className="text-lg font-semibold mb-2">📝 Words</h3>
+          <p className="text-3xl font-bold">{words}</p>
+        </GlassCard>
 
-        <div className="border rounded-xl p-4">
-          <h3 className="font-semibold">🚫 No Spaces</h3>
-          <p className="text-2xl">{charactersWithoutSpaces}</p>
-        </div>
+        <GlassCard className="text-center">
+          <h3 className="text-lg font-semibold mb-2">🔤 Characters</h3>
+          <p className="text-3xl font-bold">{characters}</p>
+        </GlassCard>
 
-        <div className="border rounded-xl p-4">
-          <h3 className="font-semibold">💬 Sentences</h3>
-          <p className="text-2xl">{sentences}</p>
-        </div>
+        <GlassCard className="text-center">
+          <h3 className="text-lg font-semibold mb-2">🚫 No Spaces</h3>
+          <p className="text-3xl font-bold">
+            {charactersWithoutSpaces}
+          </p>
+        </GlassCard>
 
-        <div className="border rounded-xl p-4">
-          <h3 className="font-semibold">📄 Paragraphs</h3>
-          <p className="text-2xl">{paragraphs}</p>
-        </div>
+        <GlassCard className="text-center">
+          <h3 className="text-lg font-semibold mb-2">💬 Sentences</h3>
+          <p className="text-3xl font-bold">{sentences}</p>
+        </GlassCard>
 
-        <div className="border rounded-xl p-4">
-          <h3 className="font-semibold">⏱ Reading Time</h3>
-          <p className="text-2xl">{readingTime} min</p>
-        </div>
+        <GlassCard className="text-center">
+          <h3 className="text-lg font-semibold mb-2">📄 Paragraphs</h3>
+          <p className="text-3xl font-bold">{paragraphs}</p>
+        </GlassCard>
+
+        <GlassCard className="text-center">
+          <h3 className="text-lg font-semibold mb-2">⏱ Reading Time</h3>
+          <p className="text-3xl font-bold">
+            {readingTime} min
+          </p>
+        </GlassCard>
+
       </div>
 
-      <div className="flex gap-4 mt-8">
-        <button
-          onClick={copyText}
-          className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition"
-        >
-          {copied ? "✅ Copied!" : "Copy Text"}
-        </button>
+      <div className="grid md:grid-cols-2 gap-4 mt-8">
+
+        <PrimaryButton onClick={copyText}>
+          {copied ? "✅ Copied!" : "📋 Copy Text"}
+        </PrimaryButton>
 
         <button
           onClick={clearText}
-          className="border px-6 py-3 rounded-xl hover:bg-gray-100 transition"
+          className="glass py-4 rounded-2xl font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
         >
-          Clear
+          🗑 Clear
         </button>
+
       </div>
+
     </ToolLayout>
   );
 }

@@ -1,19 +1,28 @@
 import { useState } from "react";
+
 import ToolLayout from "../../layouts/ToolLayout";
+
+import GlassInput from "../../components/common/GlassInput";
+import GlassTextarea from "../../components/common/GlassTextarea";
+import GlassCard from "../../components/common/GlassCard";
+import PrimaryButton from "../../components/common/PrimaryButton";
 
 export default function RegexTester() {
   const [pattern, setPattern] = useState("");
   const [text, setText] = useState("");
   const [matches, setMatches] = useState([]);
+  const [error, setError] = useState("");
 
   function testRegex() {
     try {
       const regex = new RegExp(pattern, "g");
       const result = text.match(regex);
+
       setMatches(result || []);
+      setError("");
     } catch {
-      alert("Invalid regular expression.");
       setMatches([]);
+      setError("❌ Invalid Regular Expression");
     }
   }
 
@@ -21,55 +30,80 @@ export default function RegexTester() {
     setPattern("");
     setText("");
     setMatches([]);
+    setError("");
   }
 
   return (
     <ToolLayout
       title="Regex Tester"
-      description="Test regular expressions instantly."
+      description="Test and validate regular expressions instantly."
     >
-      <input
-        type="text"
+      <GlassInput
         value={pattern}
         onChange={(e) => setPattern(e.target.value)}
-        placeholder="Enter regex pattern..."
-        className="w-full border rounded-xl p-3"
+        placeholder="Enter regex pattern (e.g. \\d+)"
       />
 
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Enter text..."
-        className="w-full h-40 border rounded-xl p-4 mt-6 resize-none"
-      />      {matches.length > 0 && (
-        <div className="mt-6 border rounded-xl p-4">
-          <h3 className="font-semibold mb-3">
-            Matches ({matches.length})
-          </h3>
+      <div className="mt-6">
+        <GlassTextarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Enter text to test..."
+          rows={8}
+        />
+      </div>
 
-          <ul className="list-disc pl-5 space-y-2">
-            {matches.map((match, index) => (
-              <li key={index}>{match}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="grid md:grid-cols-2 gap-4 mt-8">
 
-      <div className="grid grid-cols-2 gap-4 mt-6">
-        <button
-          onClick={testRegex}
-          className="bg-black text-white py-3 rounded-xl"
-        >
-          Test Regex
-        </button>
+        <PrimaryButton onClick={testRegex}>
+          🔍 Test Regex
+        </PrimaryButton>
 
         <button
           onClick={resetTool}
-          className="border py-3 rounded-xl"
+          className="glass rounded-2xl py-4 font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
         >
-          Reset
+          🔄 Reset
         </button>
+
       </div>
+
+      {error && (
+        <GlassCard className="mt-8 text-center">
+          <p className="text-red-500 font-semibold">
+            {error}
+          </p>
+        </GlassCard>
+      )}
+
+      {!error && matches.length > 0 && (
+        <GlassCard className="mt-8">
+
+          <h3
+            className="text-xl font-bold mb-4"
+            style={{ color: "var(--text)" }}
+          >
+            Matches ({matches.length})
+          </h3>
+
+          <ul
+            className="space-y-3"
+            style={{ color: "var(--text)" }}
+          >
+            {matches.map((match, index) => (
+              <li
+                key={index}
+                className="glass rounded-xl px-4 py-3"
+              >
+                {match}
+              </li>
+            ))}
+          </ul>
+
+        </GlassCard>
+      )}
+
     </ToolLayout>
   );
 }

@@ -43,96 +43,115 @@ export default function PasswordGenerator() {
   }
 
   const strength =
-    length >= 16
-      ? "Strong"
-      : length >= 10
-      ? "Medium"
-      : "Weak";
+    length >= 16 ? "Strong" : length >= 10 ? "Medium" : "Weak";
 
   return (
     <ToolLayout
       title="Password Generator"
       description="Generate secure passwords in seconds."
     >
-      <label className="font-semibold">
-        Password Length: {length}
-      </label>
+      {/* Length */}
+      <div className="mb-8">
+        <label className="block text-xl font-semibold text-[var(--text)] mb-4">
+          Password Length: {length}
+        </label>
 
-      <input
-        type="range"
-        min="6"
-        max="32"
-        value={length}
-        onChange={(e) => setLength(Number(e.target.value))}
-        className="w-full mt-3"
-      />
+        <input
+          type="range"
+          min="6"
+          max="32"
+          value={length}
+          onChange={(e) => setLength(Number(e.target.value))}
+          className="w-full accent-blue-600 cursor-pointer"
+        />
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-4 mt-8">
-        <label>
+      {/* Options */}
+      <div className="grid md:grid-cols-2 gap-5">
+
+        <label className="glass p-4 rounded-2xl flex items-center gap-3 text-[var(--text)] cursor-pointer">
           <input
             type="checkbox"
             checked={uppercase}
             onChange={() => setUppercase(!uppercase)}
-          />{" "}
-          Uppercase
+          />
+          Uppercase Letters
         </label>
 
-        <label>
+        <label className="glass p-4 rounded-2xl flex items-center gap-3 text-[var(--text)] cursor-pointer">
           <input
             type="checkbox"
             checked={lowercase}
             onChange={() => setLowercase(!lowercase)}
-          />{" "}
-          Lowercase
+          />
+          Lowercase Letters
         </label>
 
-        <label>
+        <label className="glass p-4 rounded-2xl flex items-center gap-3 text-[var(--text)] cursor-pointer">
           <input
             type="checkbox"
             checked={numbers}
             onChange={() => setNumbers(!numbers)}
-          />{" "}
+          />
           Numbers
         </label>
 
-        <label>
+        <label className="glass p-4 rounded-2xl flex items-center gap-3 text-[var(--text)] cursor-pointer">
           <input
             type="checkbox"
             checked={symbols}
             onChange={() => setSymbols(!symbols)}
-          />{" "}
+          />
           Symbols
         </label>
+
       </div>
 
+      {/* Button */}
       <button
         onClick={generatePassword}
-        className="w-full bg-black text-white py-3 rounded-xl mt-8"
+        className="w-full mt-10 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg transition-all duration-300"
       >
         Generate Password
       </button>
 
+      {/* Result */}
       {password && (
-        <>
+        <div className="glass rounded-3xl p-6 mt-10">
+
           <input
             readOnly
             value={password}
-            className="w-full border rounded-xl mt-8 p-4 font-mono text-center"
+            className="w-full bg-transparent outline-none text-center font-mono text-lg text-[var(--text)]"
           />
 
-          <div className="flex justify-between items-center mt-5">
-            <span className="font-semibold">
-              Strength: {strength}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-6">
+
+            <span className="font-semibold text-[var(--text)]">
+              Strength:{" "}
+              <span
+                className={
+                  strength === "Strong"
+                    ? "text-green-500"
+                    : strength === "Medium"
+                    ? "text-yellow-500"
+                    : "text-red-500"
+                }
+              >
+                {strength}
+              </span>
             </span>
 
             <button
               onClick={copyPassword}
-              className="border px-5 py-2 rounded-lg"
+              className="glass px-6 py-2 rounded-xl text-[var(--text)] hover:scale-105 transition-all duration-300"
             >
-              {copied ? "Copied!" : "Copy"}
+              {copied ? "Copied!" : "Copy Password"}
             </button>
+
           </div>
-        </>
+
+        </div>
       )}
     </ToolLayout>
   );

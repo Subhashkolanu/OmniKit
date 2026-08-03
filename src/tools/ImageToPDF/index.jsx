@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { PDFDocument } from "pdf-lib";
+
 import ToolLayout from "../../layouts/ToolLayout";
+
+import GlassCard from "../../components/common/GlassCard";
+import GlassInput from "../../components/common/GlassInput";
+import PrimaryButton from "../../components/common/PrimaryButton";
 
 export default function ImageToPDF() {
   const [files, setFiles] = useState([]);
@@ -62,45 +67,85 @@ export default function ImageToPDF() {
     setLoading(false);
   }
 
+  function resetTool() {
+    setFiles([]);
+  }
+
   return (
     <ToolLayout
       title="Image to PDF"
       description="Convert one or multiple images into a PDF document."
     >
-      <input
-        type="file"
-        multiple
-        accept="image/png,image/jpeg"
-        onChange={(e) => setFiles([...e.target.files])}
-        className="w-full border rounded-xl p-4"
-      />
+      <GlassCard>
+
+        <label
+          className="block text-lg font-semibold mb-3"
+          style={{ color: "var(--text)" }}
+        >
+          Select Images
+        </label>
+
+        <GlassInput
+          type="file"
+          multiple
+          accept="image/png,image/jpeg"
+          onChange={(e) => setFiles([...e.target.files])}
+        />
+
+      </GlassCard>
 
       {files.length > 0 && (
-        <div className="mt-6">
-          <h3 className="font-semibold mb-3">
-            Selected Images
+        <GlassCard className="mt-6">
+
+          <h3
+            className="text-lg font-semibold mb-4"
+            style={{ color: "var(--text)" }}
+          >
+            Selected Images ({files.length})
           </h3>
 
-          <ul className="space-y-2">
+          <div className="space-y-3">
             {files.map((file, index) => (
-              <li
+              <div
                 key={index}
-                className="border rounded-lg px-4 py-3"
+                className="glass rounded-xl px-4 py-3"
               >
-                {file.name}
-              </li>
+                <p style={{ color: "var(--text)" }}>
+                  {file.name}
+                </p>
+
+                <p
+                  className="text-sm"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {(file.size / 1024).toFixed(1)} KB
+                </p>
+              </div>
             ))}
-          </ul>
-        </div>
+          </div>
+
+        </GlassCard>
       )}
 
-      <button
-        onClick={createPDF}
-        disabled={loading}
-        className="w-full bg-black text-white py-3 rounded-xl mt-8"
-      >
-        {loading ? "Creating PDF..." : "Convert to PDF"}
-      </button>
+      <div className="grid md:grid-cols-2 gap-4 mt-8">
+
+        <PrimaryButton
+          onClick={createPDF}
+          className={loading ? "opacity-70" : ""}
+        >
+          {loading ? "Creating PDF..." : "📄 Convert to PDF"}
+        </PrimaryButton>
+
+        <button
+          onClick={resetTool}
+          className="glass rounded-2xl py-4 font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
+        >
+          🔄 Reset
+        </button>
+
+      </div>
+
     </ToolLayout>
   );
 }

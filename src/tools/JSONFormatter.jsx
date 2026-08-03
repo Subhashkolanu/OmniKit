@@ -1,5 +1,10 @@
 import { useState } from "react";
+
 import ToolLayout from "../layouts/ToolLayout";
+
+import GlassTextarea from "../components/common/GlassTextarea";
+import GlassCard from "../components/common/GlassCard";
+import PrimaryButton from "../components/common/PrimaryButton";
 
 export default function JSONFormatter() {
   const [input, setInput] = useState("");
@@ -12,6 +17,7 @@ export default function JSONFormatter() {
       const parsed = JSON.parse(input);
       setOutput(JSON.stringify(parsed, null, 2));
       setError("");
+      setCopied(false);
     } catch {
       setOutput("");
       setError("❌ Invalid JSON");
@@ -23,6 +29,7 @@ export default function JSONFormatter() {
       const parsed = JSON.parse(input);
       setOutput(JSON.stringify(parsed));
       setError("");
+      setCopied(false);
     } catch {
       setOutput("");
       setError("❌ Invalid JSON");
@@ -53,64 +60,64 @@ export default function JSONFormatter() {
       title="JSON Formatter"
       description="Format, validate and minify JSON instantly."
     >
-      <div className="space-y-6">
+      <GlassTextarea
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Paste your JSON here..."
+        rows={12}
+      />
 
-        <textarea
-          rows={10}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder='Paste JSON here...'
-          className="w-full border rounded-xl p-4 resize-none"
-        />
+      <div className="grid md:grid-cols-4 gap-4 mt-8">
 
-        <div className="flex flex-wrap gap-4">
+        <PrimaryButton onClick={formatJSON}>
+          ✨ Format
+        </PrimaryButton>
 
-          <button
-            onClick={formatJSON}
-            className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition"
-          >
-            Format
-          </button>
+        <PrimaryButton onClick={minifyJSON}>
+          📦 Minify
+        </PrimaryButton>
 
-          <button
-            onClick={minifyJSON}
-            className="border px-6 py-3 rounded-xl hover:bg-gray-100 transition"
-          >
-            Minify
-          </button>
+        <PrimaryButton onClick={copyOutput}>
+          {copied ? "✅ Copied!" : "📋 Copy"}
+        </PrimaryButton>
 
-          <button
-            onClick={copyOutput}
-            className="border px-6 py-3 rounded-xl hover:bg-gray-100 transition"
-          >
-            {copied ? "✅ Copied!" : "Copy"}
-          </button>
-
-          <button
-            onClick={clearAll}
-            className="border px-6 py-3 rounded-xl hover:bg-gray-100 transition"
-          >
-            Clear
-          </button>
-
-        </div>
-
-        {error && (
-          <div className="bg-red-100 text-red-700 rounded-xl p-4">
-            {error}
-          </div>
-        )}
-
-        {output && (
-          <textarea
-            rows={12}
-            readOnly
-            value={output}
-            className="w-full border rounded-xl p-4 font-mono bg-gray-50"
-          />
-        )}
+        <button
+          onClick={clearAll}
+          className="glass rounded-2xl py-4 font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
+        >
+          🗑 Clear
+        </button>
 
       </div>
+
+      {error && (
+        <GlassCard className="mt-8 text-center">
+          <p className="text-red-500 font-semibold">
+            {error}
+          </p>
+        </GlassCard>
+      )}
+
+      {output && (
+        <GlassCard className="mt-8">
+
+          <h3
+            className="text-xl font-bold mb-4"
+            style={{ color: "var(--text)" }}
+          >
+            Formatted JSON
+          </h3>
+
+          <GlassTextarea
+            value={output}
+            readOnly
+            rows={14}
+          />
+
+        </GlassCard>
+      )}
+
     </ToolLayout>
   );
 }
