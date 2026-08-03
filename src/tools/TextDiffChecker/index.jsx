@@ -1,10 +1,16 @@
 import { useState } from "react";
+
 import ToolLayout from "../../layouts/ToolLayout";
+
+import GlassTextarea from "../../components/common/GlassTextarea";
+import GlassCard from "../../components/common/GlassCard";
+import PrimaryButton from "../../components/common/PrimaryButton";
 
 export default function TextDiffChecker() {
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
   const [result, setResult] = useState("");
+  const [copied, setCopied] = useState(false);
 
   function compareText() {
     if (!text1.trim() && !text2.trim()) {
@@ -15,67 +21,116 @@ export default function TextDiffChecker() {
     if (text1 === text2) {
       setResult("✅ Both texts are identical.");
     } else {
-      setResult("❌ Texts are different.");
+      setResult("❌ The texts are different.");
     }
+
+    setCopied(false);
   }
 
   function copyResult() {
+    if (!result) return;
+
     navigator.clipboard.writeText(result);
-    alert("Copied!");
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   }
 
   function resetTool() {
     setText1("");
     setText2("");
     setResult("");
+    setCopied(false);
   }
 
   return (
     <ToolLayout
       title="Text Diff Checker"
-      description="Compare two texts instantly."
+      description="Compare two pieces of text instantly."
     >
-      <textarea
-        value={text1}
-        onChange={(e) => setText1(e.target.value)}
-        placeholder="First text..."
-        className="w-full h-40 border rounded-xl p-4 resize-none"
-      />
+      <div className="grid md:grid-cols-2 gap-6">
 
-      <textarea
-        value={text2}
-        onChange={(e) => setText2(e.target.value)}
-        placeholder="Second text..."
-        className="w-full h-40 border rounded-xl p-4 mt-6 resize-none"
-      />      {result && (
-        <div className="mt-6 border rounded-xl p-4 bg-gray-100">
-          <p className="font-semibold">{result}</p>
-        </div>
+        <GlassCard>
+
+          <h2
+            className="text-lg font-bold mb-4"
+            style={{ color: "var(--text)" }}
+          >
+            First Text
+          </h2>
+
+          <GlassTextarea
+            value={text1}
+            onChange={(e) => setText1(e.target.value)}
+            placeholder="Enter first text..."
+            rows={10}
+          />
+
+        </GlassCard>
+
+        <GlassCard>
+
+          <h2
+            className="text-lg font-bold mb-4"
+            style={{ color: "var(--text)" }}
+          >
+            Second Text
+          </h2>
+
+          <GlassTextarea
+            value={text2}
+            onChange={(e) => setText2(e.target.value)}
+            placeholder="Enter second text..."
+            rows={10}
+          />
+
+        </GlassCard>
+
+      </div>
+
+      {result && (
+        <GlassCard className="mt-8 text-center">
+
+          <h3
+            className="text-xl font-bold"
+            style={{ color: "var(--text)" }}
+          >
+            Comparison Result
+          </h3>
+
+          <p
+            className="mt-4 text-lg"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {result}
+          </p>
+
+        </GlassCard>
       )}
 
-      <div className="grid grid-cols-3 gap-4 mt-6">
-        <button
-          onClick={compareText}
-          className="bg-black text-white py-3 rounded-xl"
-        >
-          Compare
-        </button>
+      <div className="grid md:grid-cols-3 gap-4 mt-8">
 
-        <button
-          onClick={copyResult}
-          disabled={!result}
-          className="border py-3 rounded-xl disabled:opacity-50"
-        >
-          Copy
-        </button>
+        <PrimaryButton onClick={compareText}>
+          🔍 Compare
+        </PrimaryButton>
+
+        <PrimaryButton onClick={copyResult}>
+          {copied ? "✅ Copied!" : "📋 Copy Result"}
+        </PrimaryButton>
 
         <button
           onClick={resetTool}
-          className="border py-3 rounded-xl"
+          className="glass rounded-2xl py-4 font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
         >
-          Reset
+          🔄 Reset
         </button>
+
       </div>
+
     </ToolLayout>
   );
 }

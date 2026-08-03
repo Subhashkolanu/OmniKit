@@ -1,5 +1,10 @@
 import { useState } from "react";
+
 import ToolLayout from "../../layouts/ToolLayout";
+
+import GlassCard from "../../components/common/GlassCard";
+import GlassInput from "../../components/common/GlassInput";
+import PrimaryButton from "../../components/common/PrimaryButton";
 
 export default function ImageResizer() {
   const [image, setImage] = useState(null);
@@ -14,7 +19,10 @@ export default function ImageResizer() {
   }
 
   function resizeImage() {
-    if (!image) return;
+    if (!image) {
+      alert("Please select an image.");
+      return;
+    }
 
     const img = new Image();
 
@@ -22,6 +30,7 @@ export default function ImageResizer() {
 
     img.onload = () => {
       const canvas = document.createElement("canvas");
+
       canvas.width = width;
       canvas.height = height;
 
@@ -44,48 +53,112 @@ export default function ImageResizer() {
     };
   }
 
+  function resetTool() {
+    setImage(null);
+    setWidth(500);
+    setHeight(500);
+  }
+
   return (
     <ToolLayout
       title="Image Resizer"
       description="Resize images instantly."
     >
-      <div className="space-y-6">
+      <GlassCard>
 
-        <input
+        <label
+          className="block text-lg font-semibold mb-3"
+          style={{ color: "var(--text)" }}
+        >
+          Select Image
+        </label>
+
+        <GlassInput
           type="file"
           accept="image/*"
           onChange={handleImage}
-          className="border rounded-xl p-3 w-full"
         />
 
-        <div className="grid grid-cols-2 gap-4">
+      </GlassCard>
 
-          <input
+      <div className="grid md:grid-cols-2 gap-6 mt-6">
+
+        <GlassCard>
+
+          <label
+            className="block mb-2 font-semibold"
+            style={{ color: "var(--text)" }}
+          >
+            Width (px)
+          </label>
+
+          <GlassInput
             type="number"
             value={width}
             onChange={(e) => setWidth(Number(e.target.value))}
-            placeholder="Width"
-            className="border rounded-xl p-3"
           />
 
-          <input
+        </GlassCard>
+
+        <GlassCard>
+
+          <label
+            className="block mb-2 font-semibold"
+            style={{ color: "var(--text)" }}
+          >
+            Height (px)
+          </label>
+
+          <GlassInput
             type="number"
             value={height}
             onChange={(e) => setHeight(Number(e.target.value))}
-            placeholder="Height"
-            className="border rounded-xl p-3"
           />
 
-        </div>
+        </GlassCard>
+
+      </div>
+
+      {image && (
+        <GlassCard className="mt-6">
+
+          <h3
+            className="text-lg font-semibold"
+            style={{ color: "var(--text)" }}
+          >
+            Selected Image
+          </h3>
+
+          <p
+            className="mt-2"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {image.name}
+          </p>
+
+          <p style={{ color: "var(--text-secondary)" }}>
+            {(image.size / 1024).toFixed(1)} KB
+          </p>
+
+        </GlassCard>
+      )}
+
+      <div className="grid md:grid-cols-2 gap-4 mt-8">
+
+        <PrimaryButton onClick={resizeImage}>
+          📏 Resize Image
+        </PrimaryButton>
 
         <button
-          onClick={resizeImage}
-          className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700"
+          onClick={resetTool}
+          className="glass rounded-2xl py-4 font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
         >
-          Resize Image
+          🔄 Reset
         </button>
 
       </div>
+
     </ToolLayout>
   );
 }

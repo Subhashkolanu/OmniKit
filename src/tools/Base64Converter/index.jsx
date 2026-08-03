@@ -1,34 +1,56 @@
 import { useState } from "react";
+
 import ToolLayout from "../../layouts/ToolLayout";
+
+import GlassTextarea from "../../components/common/GlassTextarea";
+import GlassCard from "../../components/common/GlassCard";
+import PrimaryButton from "../../components/common/PrimaryButton";
 
 export default function Base64Converter() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [error, setError] = useState("");
 
   function encodeText() {
     try {
       setOutput(btoa(input));
+      setError("");
+      setCopied(false);
     } catch {
-      alert("Unable to encode text.");
+      setOutput("");
+      setError("❌ Unable to encode text.");
     }
   }
 
   function decodeText() {
     try {
       setOutput(atob(input));
+      setError("");
+      setCopied(false);
     } catch {
-      alert("Invalid Base64 string.");
+      setOutput("");
+      setError("❌ Invalid Base64 string.");
     }
   }
 
   function copyOutput() {
+    if (!output) return;
+
     navigator.clipboard.writeText(output);
-    alert("Copied!");
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   }
 
   function resetTool() {
     setInput("");
     setOutput("");
+    setError("");
+    setCopied(false);
   }
 
   return (
@@ -36,49 +58,65 @@ export default function Base64Converter() {
       title="Base64 Encoder / Decoder"
       description="Encode and decode Base64 text instantly."
     >
-      <textarea
+
+      <GlassTextarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter text or Base64..."
-        className="w-full h-40 border rounded-xl p-4 resize-none"
-      />      {output && (
-        <textarea
-          value={output}
-          readOnly
-          className="w-full h-40 border rounded-xl p-4 mt-6 resize-none"
-        />
-      )}
+        rows={8}
+      />
 
-      <div className="grid grid-cols-2 gap-4 mt-6">
-        <button
-          onClick={encodeText}
-          className="bg-black text-white py-3 rounded-xl"
-        >
-          Encode
-        </button>
+      <div className="grid md:grid-cols-4 gap-4 mt-8">
 
-        <button
-          onClick={decodeText}
-          className="bg-black text-white py-3 rounded-xl"
-        >
-          Decode
-        </button>
+        <PrimaryButton onClick={encodeText}>
+          🔒 Encode
+        </PrimaryButton>
 
-        <button
-          onClick={copyOutput}
-          disabled={!output}
-          className="border py-3 rounded-xl disabled:opacity-50"
-        >
-          Copy
-        </button>
+        <PrimaryButton onClick={decodeText}>
+          🔓 Decode
+        </PrimaryButton>
+
+        <PrimaryButton onClick={copyOutput}>
+          {copied ? "✅ Copied!" : "📋 Copy"}
+        </PrimaryButton>
 
         <button
           onClick={resetTool}
-          className="border py-3 rounded-xl"
+          className="glass rounded-2xl py-4 font-semibold hover:scale-[1.02] transition-all"
+          style={{ color: "var(--text)" }}
         >
-          Reset
+          🔄 Reset
         </button>
+
       </div>
+
+      {error && (
+        <GlassCard className="mt-8 text-center">
+          <p className="text-red-500 font-semibold">
+            {error}
+          </p>
+        </GlassCard>
+      )}
+
+      {output && (
+        <GlassCard className="mt-8">
+
+          <h3
+            className="text-xl font-bold mb-4"
+            style={{ color: "var(--text)" }}
+          >
+            Output
+          </h3>
+
+          <GlassTextarea
+            value={output}
+            readOnly
+            rows={8}
+          />
+
+        </GlassCard>
+      )}
+
     </ToolLayout>
   );
 }
