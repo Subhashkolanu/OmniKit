@@ -27,6 +27,9 @@ import Base64Converter from "./tools/Base64Converter";
 import URLEncoderDecoder from "./tools/URLEncoderDecoder";
 import MarkdownPreview from "./tools/MarkdownPreview";
 import LoremIpsumGenerator from "./tools/LoremIpsumGenerator";
+import JWTDecoder from "./tools/JWTDecoder";
+import RegexTester from "./tools/RegexTester";
+import QRCodeScanner from "./tools/QRCodeScanner";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -135,6 +138,16 @@ function App() {
 <Route
   path="/tools/lorem-ipsum-generator"
   element={<LoremIpsumGenerator />}
+/><Route
+  path="/tools/jwt-decoder"
+  element={<JWTDecoder />}
+/>
+<Route
+  path="/tools/regex-tester"
+  element={<RegexTester />}
+/><Route
+  path="/tools/qr-code-scanner"
+  element={<QRCodeScanner />}
 />
 
         {/* 404 */}

@@ -163,6 +163,30 @@ const tools = [
   icon: "📃",
   path: "/tools/lorem-ipsum-generator",
 },
+{
+  id: 22,
+  name: "JWT Decoder",
+  category: "Developer",
+  description: "Decode JWT tokens instantly.",
+  icon: "🔑",
+  path: "/tools/jwt-decoder",
+},
+{
+  id: 23,
+  name: "Regex Tester",
+  category: "Developer",
+  description: "Test regular expressions against text instantly.",
+  icon: "🔍",
+  path: "/tools/regex-tester",
+},
+{
+  id: 24,
+  name: "QR Code Scanner",
+  category: "Utility",
+  description: "Scan QR codes from uploaded images.",
+  icon: "📷",
+  path: "/tools/qr-code-scanner",
+},
 ];
 
 export default tools;
