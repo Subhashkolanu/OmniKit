@@ -133,6 +133,13 @@ const tools = [
   description: "Generate SHA-256 hashes for any text.",
   icon: "#️⃣",
   path: "/tools/hash-generator",
+},{
+  id: 18,
+  name: "Base64 Encoder / Decoder",
+  category: "Developer",
+  description: "Encode and decode Base64 text instantly.",
+  icon: "🔐",
+  path: "/tools/base64-converter",
 },
 ];
 

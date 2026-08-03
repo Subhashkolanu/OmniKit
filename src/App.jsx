@@ -23,6 +23,7 @@ import PDFSplitter from "./tools/PDFSplitter";
 import PDFCompressor from "./tools/PDFCompressor";
 import UUIDGenerator from "./tools/UUIDGenerator";
 import HashGenerator from "./tools/HashGenerator";
+import Base64Converter from "./tools/Base64Converter";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -116,6 +117,10 @@ function App() {
 <Route
   path="/tools/hash-generator"
   element={<HashGenerator />}
+/>
+<Route
+  path="/tools/base64-converter"
+  element={<Base64Converter />}
 />
 
         {/* 404 */}
