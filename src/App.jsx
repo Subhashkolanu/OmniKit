@@ -31,6 +31,7 @@ import JWTDecoder from "./tools/JWTDecoder";
 import RegexTester from "./tools/RegexTester";
 import QRCodeScanner from "./tools/QRCodeScanner";
 import TextDiffChecker from "./tools/TextDiffChecker";
+import ThemeToggle from "./components/ThemeToggle";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -153,7 +154,9 @@ function App() {
   path="/tools/text-diff-checker"
   element={<TextDiffChecker />}
 />
-
+<div className="p-10">
+  <ThemeToggle />
+</div>
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
