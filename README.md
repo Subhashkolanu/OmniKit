@@ -1,4 +1,3 @@
-Congratulations! 🎉 You've reached the point where OmniKit is ready to be presented publicly.
 
 ---
 
