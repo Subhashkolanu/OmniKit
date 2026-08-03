@@ -140,6 +140,13 @@ const tools = [
   description: "Encode and decode Base64 text instantly.",
   icon: "🔐",
   path: "/tools/base64-converter",
+},{
+  id: 19,
+  name: "URL Encoder / Decoder",
+  category: "Developer",
+  description: "Encode and decode URLs instantly.",
+  icon: "🔗",
+  path: "/tools/url-encoder-decoder",
 },
 ];
 

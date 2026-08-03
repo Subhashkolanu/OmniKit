@@ -24,6 +24,7 @@ import PDFCompressor from "./tools/PDFCompressor";
 import UUIDGenerator from "./tools/UUIDGenerator";
 import HashGenerator from "./tools/HashGenerator";
 import Base64Converter from "./tools/Base64Converter";
+import URLEncoderDecoder from "./tools/URLEncoderDecoder";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -121,6 +122,9 @@ function App() {
 <Route
   path="/tools/base64-converter"
   element={<Base64Converter />}
+/><Route
+  path="/tools/url-encoder-decoder"
+  element={<URLEncoderDecoder />}
 />
 
         {/* 404 */}
