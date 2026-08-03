@@ -25,6 +25,7 @@ import UUIDGenerator from "./tools/UUIDGenerator";
 import HashGenerator from "./tools/HashGenerator";
 import Base64Converter from "./tools/Base64Converter";
 import URLEncoderDecoder from "./tools/URLEncoderDecoder";
+import MarkdownPreview from "./tools/MarkdownPreview";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -125,6 +126,10 @@ function App() {
 /><Route
   path="/tools/url-encoder-decoder"
   element={<URLEncoderDecoder />}
+/>
+<Route
+  path="/tools/markdown-preview"
+  element={<MarkdownPreview />}
 />
 
         {/* 404 */}

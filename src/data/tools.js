@@ -148,6 +148,14 @@ const tools = [
   icon: "🔗",
   path: "/tools/url-encoder-decoder",
 },
+{
+  id: 20,
+  name: "Markdown Preview",
+  category: "Developer",
+  description: "Write Markdown and preview it instantly.",
+  icon: "📄",
+  path: "/tools/markdown-preview",
+},
 ];
 
 export default tools;
