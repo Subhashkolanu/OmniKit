@@ -78,7 +78,8 @@ A modern collection of free browser-based tools for developers, students, creato
 
 # 📸 Screenshots
 
-> Add screenshots of your homepage and tools here.
+![alt text](<Screenshot 2026-08-04 090723.png>) ![alt text](<Screenshot 2026-08-04 090837.png>) ![alt text](<Screenshot 2026-08-04 090822.png>) ![alt text](<Screenshot 2026-08-04 090740.png>)
+
 
 ```
 screenshots/
