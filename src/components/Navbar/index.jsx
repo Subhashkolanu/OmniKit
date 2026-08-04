@@ -4,7 +4,7 @@ import { FiSearch } from "react-icons/fi";
 import ThemeToggle from "../ThemeToggle";
 import logo from "../../assets/logo.svg";
 
-export default function Navbar() {
+export default function Navbar({ search, setSearch }) {
   return (
     <header className="sticky top-0 z-50 px-3 md:px-6 py-2 md:py-5">
 
@@ -39,10 +39,12 @@ export default function Navbar() {
               />
 
               <input
-                type="text"
-                placeholder="Search any tool..."
-                className="w-full bg-transparent outline-none text-[var(--text)] placeholder:text-[var(--text-secondary)]"
-              />
+  type="text"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  placeholder="Search any tool..."
+  className="w-full bg-transparent outline-none text-[var(--text)] placeholder:text-[var(--text-secondary)]"
+/>
 
             </div>
 
